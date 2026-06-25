@@ -1,0 +1,18 @@
+{
+  "name": "agenthub-pair",
+  "version": "1.0.0",
+  "description": "CLI tool to pair AI agents with AgentHub iOS app",
+  "main": "index.js",
+  "bin": {
+    "agenthub-pair": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "keywords": ["agent", "ai", "pairing", "supabase"],
+  "license": "MIT"
+}
