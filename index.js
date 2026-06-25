@@ -105,27 +105,19 @@ async function main() {
   console.log('  Agent registered');
   console.log('');
 
-  // Display QR code
+  // Display QR code FIRST (big, easy to scan)
   const qrContent = `agenthub://pair?code=${code}`;
-  
-  console.log('  ┌───────────────────────────────────────────┐');
-  console.log(`  │  Code: ${code}                               │`);
-  console.log('  │                                             │');
-  
-  qrcode.generate(qrContent, { small: true }, (qr) => {
-    const lines = qr.split('\n');
-    for (const line of lines) {
-      if (line.trim()) {
-        console.log(`  │  ${line.padEnd(41)}│`);
-      }
-    }
-    console.log('  │                                             │');
-    console.log('  │  Scan with AgentHub app                    │');
-    console.log('  └───────────────────────────────────────────┘');
+
+  qrcode.generate(qrContent, { small: false }, (qr) => {
+    console.log('');
+    console.log(qr);
+    console.log(`  Pairing Code: ${code}`);
+    console.log('');
+    console.log('  Scan QR with AgentHub app, or enter code manually');
     console.log('');
     console.log('  Waiting for messages... (Ctrl+C to stop)');
     console.log('');
-    
+
     startPolling(code);
   });
 }
